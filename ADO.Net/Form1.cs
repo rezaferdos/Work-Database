@@ -38,5 +38,10 @@ namespace ADO.Net
             connection.Close();
             MessageBox.Show("Successful Added");
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
