@@ -1,3 +1,4 @@
+﻿using ADO.Net.Model;
 using Microsoft.Data.SqlClient;
 
 namespace ADO.Net
@@ -22,8 +23,16 @@ namespace ADO.Net
          *      
          */
 
+        /// //////////////////////////////////////////////////////////
+        // Add Record, HardCode and Fix Value
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (CreateFixValue())
+                MessageBox.Show("Successful Added");
+        }
+        private bool CreateFixValue()
+        {
+            // Connection String
             /// With Username & Password
             string connectionString = "Server=.;Database=Northwind;User Id=sa;Password=828898;TrustServerCertificate=True;Integrated Security=true;";
             /// With Windows Authnticate
@@ -36,12 +45,65 @@ namespace ADO.Net
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
-            MessageBox.Show("Successful Added");
+            return true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        /// //////////////////////////////////////////////////////////
+        // SQL Injection 💉
+        /// With Parameter
+        private void btnAddParam_Click(object sender, EventArgs e)
         {
-
+            var p = new Product { ProductName = "Pepsi", UnitPrice = 2.5 };
+            if (CreateInjection(p))
+                MessageBox.Show("Operation Successful");
         }
+        // Injection : P.ProductName = Pepsi', 2) GO DELETE dbo.Products --
+        // Resualt = INSERT INTO dbo.Products (ProductName, UnitPrice) VALUES ('Pepsi', 2) GO DELETE dbo.Products --', {p.UnitPrice})"
+        private bool CreateInjection(Product p)
+        {
+            // Connection String
+            /// With Username & Password
+            string connectionString = "Server=.;Database=Northwind;User Id=sa;Password=828898;TrustServerCertificate=True;Integrated Security=true;";
+            /// With Windows Authnticate
+            string connectionString2 = "Server=.;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security=true;";
+
+            var connection = new SqlConnection(connectionString2);
+            var command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = $"INSERT INTO dbo.Products (ProductName, UnitPrice) VALUES ('{p.ProductName}', {p.UnitPrice})";
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return true;
+        }
+        /// //////////////////////////////////////////////////////////
+        // Solved SQL Injection With Add Parameter
+        private void btnSolved_Click(object sender, EventArgs e)
+        {
+            var p = new Product { ProductName = "Coca Cola", UnitPrice = 2.5 };
+            if (CreateAddParameter(p))
+                MessageBox.Show("Operation Successful");
+        }
+        private bool CreateAddParameter(Product p)
+        {
+            // Connection String
+            /// With Username & Password
+            string connectionString = "Server=.;Database=Northwind;User Id=sa;Password=828898;TrustServerCertificate=True;Integrated Security=true;";
+            /// With Windows Authnticate
+            string connectionString2 = "Server=.;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security=true;";
+
+            var connection = new SqlConnection(connectionString2);
+            var command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = $"INSERT INTO dbo.Products (ProductName, UnitPrice) VALUES (@ProductName, @UnitPrice)";
+            command.Parameters.AddWithValue("ProductName", p.ProductName);
+            command.Parameters.AddWithValue("UnitPrice", p.UnitPrice);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return true;
+        }
+
+
     }
 }

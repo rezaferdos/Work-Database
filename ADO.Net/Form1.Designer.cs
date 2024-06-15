@@ -29,32 +29,57 @@
         private void InitializeComponent()
         {
             btnAdd = new Button();
+            btnAddParam = new Button();
+            btnSolved = new Button();
             SuspendLayout();
             // 
             // btnAdd
             // 
             btnAdd.Location = new Point(12, 12);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(121, 31);
+            btnAdd.Size = new Size(158, 31);
             btnAdd.TabIndex = 0;
-            btnAdd.Text = "Add Product";
+            btnAdd.Text = "Add Product Fix Value";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // btnAddParam
+            // 
+            btnAddParam.Location = new Point(176, 12);
+            btnAddParam.Name = "btnAddParam";
+            btnAddParam.Size = new Size(158, 31);
+            btnAddParam.TabIndex = 1;
+            btnAddParam.Text = "Add Product SQL Injection";
+            btnAddParam.UseVisualStyleBackColor = true;
+            btnAddParam.Click += btnAddParam_Click;
+            // 
+            // btnSolved
+            // 
+            btnSolved.Location = new Point(340, 12);
+            btnSolved.Name = "btnSolved";
+            btnSolved.Size = new Size(231, 31);
+            btnSolved.TabIndex = 2;
+            btnSolved.Text = "Add Product Solved SQL Injection";
+            btnSolved.UseVisualStyleBackColor = true;
+            btnSolved.Click += btnSolved_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(513, 318);
+            ClientSize = new Size(583, 318);
+            Controls.Add(btnSolved);
+            Controls.Add(btnAddParam);
             Controls.Add(btnAdd);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnAdd;
+        private Button btnAddParam;
+        private Button btnSolved;
     }
 }
