@@ -35,9 +35,12 @@
             // 
             // dgProducts
             // 
+            dgProducts.AllowUserToAddRows = false;
+            dgProducts.AllowUserToDeleteRows = false;
             dgProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgProducts.Location = new Point(12, 129);
             dgProducts.Name = "dgProducts";
+            dgProducts.ReadOnly = true;
             dgProducts.Size = new Size(608, 221);
             dgProducts.TabIndex = 0;
             // 

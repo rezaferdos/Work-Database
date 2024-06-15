@@ -33,6 +33,8 @@
             btnSolved = new Button();
             btnAddSP = new Button();
             btnReadPage = new Button();
+            btnDeleteData = new Button();
+            btnUpdateData = new Button();
             SuspendLayout();
             // 
             // btnAdd
@@ -85,11 +87,33 @@
             btnReadPage.UseVisualStyleBackColor = true;
             btnReadPage.Click += btnReadPage_Click;
             // 
+            // btnDeleteData
+            // 
+            btnDeleteData.Location = new Point(413, 275);
+            btnDeleteData.Name = "btnDeleteData";
+            btnDeleteData.Size = new Size(158, 31);
+            btnDeleteData.TabIndex = 5;
+            btnDeleteData.Text = "Sample Delete Data";
+            btnDeleteData.UseVisualStyleBackColor = true;
+            btnDeleteData.Click += btnDeleteData_Click;
+            // 
+            // btnUpdateData
+            // 
+            btnUpdateData.Location = new Point(214, 275);
+            btnUpdateData.Name = "btnUpdateData";
+            btnUpdateData.Size = new Size(158, 31);
+            btnUpdateData.TabIndex = 6;
+            btnUpdateData.Text = "Sample Upadte Data";
+            btnUpdateData.UseVisualStyleBackColor = true;
+            btnUpdateData.Click += btnUpdateData_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(583, 318);
+            Controls.Add(btnUpdateData);
+            Controls.Add(btnDeleteData);
             Controls.Add(btnReadPage);
             Controls.Add(btnAddSP);
             Controls.Add(btnSolved);
@@ -107,5 +131,7 @@
         private Button btnSolved;
         private Button btnAddSP;
         private Button btnReadPage;
+        private Button btnDeleteData;
+        private Button btnUpdateData;
     }
 }

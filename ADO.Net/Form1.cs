@@ -147,5 +147,17 @@ namespace ADO.Net
             Read rd = new Read();
             rd.ShowDialog();
         }
+
+        private void btnDeleteData_Click(object sender, EventArgs e)
+        {
+            Delete delete = new Delete();
+            delete.ShowDialog();
+        }
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            Update up = new Update();
+            up.ShowDialog();
+        }
     }
 }

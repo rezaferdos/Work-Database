@@ -11,4 +11,11 @@ namespace ADO.Net.Model
         public string ProductName { get; set; }
         public double UnitPrice { get; set; }
     }
+
+    public class Product2
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public double UnitPrice { get; set; }
+    }
 }
