@@ -83,6 +83,7 @@
             btnReadPage.TabIndex = 4;
             btnReadPage.Text = "Sample Reading Data";
             btnReadPage.UseVisualStyleBackColor = true;
+            btnReadPage.Click += btnReadPage_Click;
             // 
             // Form1
             // 

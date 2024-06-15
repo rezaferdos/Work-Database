@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ADO.Net.Model;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,9 +37,39 @@ namespace ADO.Net.UI
          *      
          *      
          */
+
+
+
+        // Read Data With SqlDataReader
         private void btnreadDataReader_Click(object sender, EventArgs e)
         {
+            dgProducts.DataSource = ReadDataReader();
+        }
+        private List<Product> ReadDataReader()
+        {
+            var Resualt = new List<Product>();
+            /// Connection string
+            string connectionString2 = "Server=.;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security=true;";
+            /// Create SqlConnection
+            var conn = new SqlConnection(connectionString2);
+            var command = new SqlCommand("SELECT * FROM dbo.Products", conn);
+            conn.Open();
 
+            /// ExecuteReader() => Get Only One Redcord
+            var record = command.ExecuteReader();
+            /// If We have 2 Or More Record Returns
+            while (record.Read())
+            {
+                Resualt.Add(new Product
+                {
+                    /// Materialization/population
+                    ProductName = Convert.ToString(record["ProductName"]),
+                    UnitPrice = Convert.ToDouble(record["UnitPrice"])
+                });
+            }
+
+            conn.Close();
+            return Resualt;
         }
     }
 }

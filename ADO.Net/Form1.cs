@@ -1,4 +1,5 @@
 ﻿using ADO.Net.Model;
+using ADO.Net.UI;
 using Microsoft.Data.SqlClient;
 
 namespace ADO.Net
@@ -141,6 +142,10 @@ namespace ADO.Net
             return true;
         }
 
-
+        private void btnReadPage_Click(object sender, EventArgs e)
+        {
+            Read rd = new Read();
+            rd.ShowDialog();
+        }
     }
 }
