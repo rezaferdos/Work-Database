@@ -31,6 +31,8 @@
             btnAdd = new Button();
             btnAddParam = new Button();
             btnSolved = new Button();
+            btnAddSP = new Button();
+            btnReadPage = new Button();
             SuspendLayout();
             // 
             // btnAdd
@@ -63,16 +65,37 @@
             btnSolved.UseVisualStyleBackColor = true;
             btnSolved.Click += btnSolved_Click;
             // 
+            // btnAddSP
+            // 
+            btnAddSP.Location = new Point(12, 49);
+            btnAddSP.Name = "btnAddSP";
+            btnAddSP.Size = new Size(158, 31);
+            btnAddSP.TabIndex = 3;
+            btnAddSP.Text = "Add Product Call SP";
+            btnAddSP.UseVisualStyleBackColor = true;
+            btnAddSP.Click += btnAddSP_Click;
+            // 
+            // btnReadPage
+            // 
+            btnReadPage.Location = new Point(12, 275);
+            btnReadPage.Name = "btnReadPage";
+            btnReadPage.Size = new Size(158, 31);
+            btnReadPage.TabIndex = 4;
+            btnReadPage.Text = "Sample Reading Data";
+            btnReadPage.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(583, 318);
+            Controls.Add(btnReadPage);
+            Controls.Add(btnAddSP);
             Controls.Add(btnSolved);
             Controls.Add(btnAddParam);
             Controls.Add(btnAdd);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Create Form";
             ResumeLayout(false);
         }
 
@@ -81,5 +104,7 @@
         private Button btnAdd;
         private Button btnAddParam;
         private Button btnSolved;
+        private Button btnAddSP;
+        private Button btnReadPage;
     }
 }

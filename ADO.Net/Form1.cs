@@ -21,6 +21,11 @@ namespace ADO.Net
          *      6. EXEC SqlCommand.Text
          *      7. SqlConnection Close
          *      
+         *      Warning:
+         *          - SQL Injection
+         *          - Use AddWithValue
+         *          
+         *      
          */
 
         /// //////////////////////////////////////////////////////////
@@ -76,6 +81,8 @@ namespace ADO.Net
             connection.Close();
             return true;
         }
+
+
         /// //////////////////////////////////////////////////////////
         // Solved SQL Injection With Add Parameter
         private void btnSolved_Click(object sender, EventArgs e)
@@ -96,6 +103,36 @@ namespace ADO.Net
             var command = new SqlCommand();
             command.Connection = connection;
             command.CommandText = $"INSERT INTO dbo.Products (ProductName, UnitPrice) VALUES (@ProductName, @UnitPrice)";
+            command.Parameters.AddWithValue("ProductName", p.ProductName);
+            command.Parameters.AddWithValue("UnitPrice", p.UnitPrice);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return true;
+        }
+
+
+        /// //////////////////////////////////////////////////////////
+        // Call SP With ADO.Net
+        private void btnAddSP_Click(object sender, EventArgs e)
+        {
+            var p = new Product { ProductName = "Coca Cola", UnitPrice = 2.5 };
+            if (CreateSP(p))
+                MessageBox.Show("Operation Successful");
+        }
+        private bool CreateSP(Product p)
+        {
+            // Connection String
+            /// With Username & Password
+            string connectionString = "Server=.;Database=Northwind;User Id=sa;Password=828898;TrustServerCertificate=True;Integrated Security=true;";
+            /// With Windows Authnticate
+            string connectionString2 = "Server=.;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security=true;";
+
+            var connection = new SqlConnection(connectionString2);
+            var command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "usp_InsertIntoProducts";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.AddWithValue("ProductName", p.ProductName);
             command.Parameters.AddWithValue("UnitPrice", p.UnitPrice);
             connection.Open();
