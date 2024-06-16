@@ -34,6 +34,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
+            this.txtProductID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.btnLoadData.TabIndex = 1;
             this.btnLoadData.Text = "Refresh Data";
             this.btnLoadData.UseVisualStyleBackColor = true;
+            this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
             // 
             // btnUpdate
             // 
@@ -65,6 +67,7 @@
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update Data";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -74,6 +77,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete Data";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnInsert
             // 
@@ -83,6 +87,7 @@
             this.btnInsert.TabIndex = 4;
             this.btnInsert.Text = "Insert Data";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnRead
             // 
@@ -92,12 +97,22 @@
             this.btnRead.TabIndex = 5;
             this.btnRead.Text = "Read Data";
             this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Location = new System.Drawing.Point(149, 25);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Size = new System.Drawing.Size(147, 20);
+            this.txtProductID.TabIndex = 6;
+            this.txtProductID.Text = "ProductID For Delete Update";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 409);
+            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDelete);
@@ -106,8 +121,10 @@
             this.Controls.Add(this.dgProducts);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -119,6 +136,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.TextBox txtProductID;
     }
 }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ORM_EF_DatabaseFirst.Service
 {
-    public class Service
+    public class Services
     {
         /// ////////////////////////////////////////////////////////////
         // Read All Data
@@ -29,7 +29,6 @@ namespace ORM_EF_DatabaseFirst.Service
                 return model;
             }
         }
-
         /// ////////////////////////////////////////////////////////////
         // Insert Data
         public bool Insert(Products p)
@@ -44,11 +43,11 @@ namespace ORM_EF_DatabaseFirst.Service
 
         /// ////////////////////////////////////////////////////////////
         // Remove Data
-        public bool Remove(Products p)
+        public bool Remove(int Id)
         {
             using (var ctx = new NorthwindEntities())
             {
-                var model = ctx.Products.FirstOrDefault(n => n.ProductID == p.ProductID);
+                var model = ctx.Products.FirstOrDefault(n => n.ProductID == Id);
                 ctx.Products.Remove(model);
                 ctx.SaveChanges();
                 return true;
