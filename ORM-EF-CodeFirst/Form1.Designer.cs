@@ -28,18 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnRefresh = new Button();
+            dgvMain = new DataGridView();
+            btnInsert = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvMain).BeginInit();
             SuspendLayout();
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(560, 12);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(107, 23);
+            btnRefresh.TabIndex = 0;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // dgvMain
+            // 
+            dgvMain.AllowUserToAddRows = false;
+            dgvMain.AllowUserToDeleteRows = false;
+            dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMain.Location = new Point(12, 12);
+            dgvMain.Name = "dgvMain";
+            dgvMain.ReadOnly = true;
+            dgvMain.Size = new Size(537, 311);
+            dgvMain.TabIndex = 1;
+            // 
+            // btnInsert
+            // 
+            btnInsert.Location = new Point(560, 41);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(107, 23);
+            btnInsert.TabIndex = 2;
+            btnInsert.Text = "Insert";
+            btnInsert.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(487, 283);
+            ClientSize = new Size(674, 335);
+            Controls.Add(btnInsert);
+            Controls.Add(dgvMain);
+            Controls.Add(btnRefresh);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dgvMain).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnRefresh;
+        private DataGridView dgvMain;
+        private Button btnInsert;
     }
 }
