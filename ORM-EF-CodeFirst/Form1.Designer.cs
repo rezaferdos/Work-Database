@@ -31,8 +31,8 @@
             btnRefresh = new Button();
             dgvMain = new DataGridView();
             btnInsert = new Button();
-            btnLoadCountr = new Button();
-            btnInsertCountry = new Button();
+            btnInPerson = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMain).BeginInit();
             SuspendLayout();
             // 
@@ -67,31 +67,33 @@
             btnInsert.UseVisualStyleBackColor = true;
             btnInsert.Click += btnInsert_Click;
             // 
-            // btnLoadCountr
+            // btnInPerson
             // 
-            btnLoadCountr.Location = new Point(560, 300);
-            btnLoadCountr.Name = "btnLoadCountr";
-            btnLoadCountr.Size = new Size(107, 23);
-            btnLoadCountr.TabIndex = 4;
-            btnLoadCountr.Text = "Refresh";
-            btnLoadCountr.UseVisualStyleBackColor = true;
+            btnInPerson.Location = new Point(560, 70);
+            btnInPerson.Name = "btnInPerson";
+            btnInPerson.Size = new Size(107, 23);
+            btnInPerson.TabIndex = 3;
+            btnInPerson.Text = "Add In Person";
+            btnInPerson.UseVisualStyleBackColor = true;
+            btnInPerson.Click += btnInPerson_Click;
             // 
-            // btnInsertCountry
+            // button1
             // 
-            btnInsertCountry.Location = new Point(560, 271);
-            btnInsertCountry.Name = "btnInsertCountry";
-            btnInsertCountry.Size = new Size(107, 23);
-            btnInsertCountry.TabIndex = 3;
-            btnInsertCountry.Text = "Add Country";
-            btnInsertCountry.UseVisualStyleBackColor = true;
+            button1.Location = new Point(560, 99);
+            button1.Name = "button1";
+            button1.Size = new Size(107, 23);
+            button1.TabIndex = 4;
+            button1.Text = "Add LastDegree";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(674, 335);
-            Controls.Add(btnLoadCountr);
-            Controls.Add(btnInsertCountry);
+            Controls.Add(button1);
+            Controls.Add(btnInPerson);
             Controls.Add(btnInsert);
             Controls.Add(dgvMain);
             Controls.Add(btnRefresh);
@@ -107,7 +109,7 @@
         private Button btnRefresh;
         private DataGridView dgvMain;
         private Button btnInsert;
-        private Button btnLoadCountr;
-        private Button btnInsertCountry;
+        private Button btnInPerson;
+        private Button button1;
     }
 }

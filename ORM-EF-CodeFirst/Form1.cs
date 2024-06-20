@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using ORM_EF_CodeFirst.Models;
 using ORM_EF_CodeFirst.Service;
+using ORM_EF_CodeFirst.Models.CodeFirst_Mixed_DatabaseFirst;
 
 namespace ORM_EF_CodeFirst
 {
@@ -28,7 +29,7 @@ namespace ORM_EF_CodeFirst
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            List<string> name = new List<string>() 
+            List<string> name = new List<string>()
             { "Ali", "Ahmad", "Hossein", "Akbar", "Elahe", "Nazanin", "Sara", "Fatemeh" };
 
             var Emails = new List<string>() {
@@ -76,21 +77,36 @@ namespace ORM_EF_CodeFirst
                 "@ma-a.aa@hostna",
                 "@ma.h.saraf.onem",
             };
-            var active = new List<bool>() { true , false };
+            var active = new List<bool>() { true, false };
 
             var rnd = new Random();
-            var user = new User() {
-            Name = name[rnd.Next(7)],
-            Email = Emails[rnd.Next(10)],
-            Password = Password[rnd.Next(8)],
-            Phone = Phone[rnd.Next(6)],
-            UserName = Username[rnd.Next(8)],
-            IsActive = active[rnd.Next(2)],
-            Birthday = DateTime.Now,
-            }; 
+            var user = new User()
+            {
+                Name = name[rnd.Next(7)],
+                Email = Emails[rnd.Next(10)],
+                Password = Password[rnd.Next(8)],
+                Phone = Phone[rnd.Next(6)],
+                UserName = Username[rnd.Next(8)],
+                IsActive = active[rnd.Next(2)],
+                Birthday = DateTime.Now,
+            };
             userService.Add(user);
             MessageBox.Show("new User Generated");
             LoadData();
+        }
+
+        private void btnInPerson_Click(object sender, EventArgs e)
+        {
+            var ps = new PersonService();
+            ps.Add(new Person { PersonName = "Elahe" });
+            dgvMain.DataSource = ps.GetAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ld = new LastDegreeService();
+            ld.Add(new LastDegree() { Degree = "Maste", PersonID = 25 });
+            dgvMain.DataSource = ld.GetAll();
         }
     }
 }

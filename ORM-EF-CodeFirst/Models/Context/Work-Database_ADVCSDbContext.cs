@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ORM_EF_CodeFirst.Models.CodeFirst_Mixed_DatabaseFirst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,4 +21,6 @@ public class Work_Database_ADVCSDbContext : DbContext
     public DbSet<City> Cities { get; set; }
     public DbSet<Province> Provinces { get; set; }
     public DbSet<Country> Countries{ get; set; }
+    public DbSet<Person> Person { get; set; }
+    public DbSet<LastDegree> LastDegree { get; set; }
 }

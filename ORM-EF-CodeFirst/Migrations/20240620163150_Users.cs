@@ -39,3 +39,13 @@ namespace ORM_EF_CodeFirst.Migrations
         }
     }
 }
+////////////////////
+/*
+* Mix DbFirst with CodeFirst:
+*   1- Create Database, Tables, Relations, ...
+*   2- Create Context In C#
+*   3- Create Entity Class
+*   4- Add All Entities INTO Context
+*   5- Create Service And Use It
+*
+*/
