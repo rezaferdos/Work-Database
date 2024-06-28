@@ -94,7 +94,8 @@ namespace Business_Service_DB_Code
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
-            LoadData();
+            //LoadData();
+            /* Bug Find In EF Profiler */
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,0 +1,8 @@
+For See Queries That Execute In SQL Server:
+1- Install Package Nuget : EntityFrameworkProfiler.Appender
+	* dotnet add package EntityFrameworkProfiler.Appender
+2- Copy Statement Blow In Program.cs File Before : Application.Run(...);
+	* HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+3- Open Entity Framework Profiler App 
+4- Execute Application and Do Operation
+5- All Queries Will be listed in Entity Framework Profiler App 

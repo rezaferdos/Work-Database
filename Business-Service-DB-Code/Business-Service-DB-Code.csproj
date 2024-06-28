@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFrameworkProfiler.Appender" Version="6.0.6047" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -19,6 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ORM-EF-CodeFirst\ORM-EF-CodeFirst.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entity Framework Profiler\" />
   </ItemGroup>
 
 </Project>
